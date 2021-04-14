@@ -42,11 +42,8 @@
   .bookmark-container {
     display: flex;
     align-items: center;
-    svg {
-      margin-right: 8px;
-    }
     span {
-      font-weight: 400;
+      margin-left: 8px;
       color: $white-dark;
     }
   }

@@ -1,10 +1,12 @@
 import Header from './components/Header';
+import Search from './components/search/Search';
 
 const App = (): JSX.Element => {
   return (
-    <div>
+    <>
       <Header></Header>
-    </div>
+      <Search></Search>
+    </>
   );
 };
 
