@@ -1,0 +1,53 @@
+.header {
+  background-color: $blue;
+  display: flex;
+  align-items: center;
+  padding: 15px 16px;
+  font-size: 16px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
+
+  img {
+    width: 138px;
+    height: 20px;
+    margin-right: 16px;
+  }
+
+  svg {
+    color: $white;
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    width: 240px;
+    margin-right: 32px;
+    padding: 5px 12px;
+    background-color: $blue-dark;
+    border-radius: 4px;
+
+    input {
+      outline: none;
+      border: none;
+      background-color: transparent;
+      color: $white-dark;
+      height: 15px;
+      margin-left: 12px;
+
+      &::placeholder {
+        color: #b8cae5;
+      }
+    }
+  }
+
+  .bookmark-container {
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 8px;
+    }
+    span {
+      font-weight: 400;
+      color: $white-dark;
+    }
+  }
+}
