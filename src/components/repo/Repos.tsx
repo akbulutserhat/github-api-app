@@ -1,14 +1,18 @@
+import { useContext } from 'react';
+import { DataContext } from '../../App';
+import { IData } from '../../shared/interfaces';
 import RepoItem from './RepoItem';
 
 const Repos = () => {
+  const data = useContext<IData>(DataContext);
+  const { total_count, items } = data;
   return (
     <div className='repositories'>
-      <p className='count'>2,555 Repository Results</p>
+      <p className='count'>{total_count} Repository Results</p>
       <ul>
-        <RepoItem></RepoItem>
-        <RepoItem></RepoItem>
-        <RepoItem></RepoItem>
-        <RepoItem></RepoItem>
+        {items.map((item) => (
+          <RepoItem item={item}></RepoItem>
+        ))}
       </ul>
     </div>
   );

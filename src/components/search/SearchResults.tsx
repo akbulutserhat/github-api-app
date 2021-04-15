@@ -5,8 +5,8 @@ interface Props {
   searchFilter?: string;
 }
 
-const Search = ({ searchKey, searchFilter = 'repository' }: Props) => {
-  return <>{searchKey && searchFilter == 'repository' && <Repos></Repos>}</>;
+const Search = ({ searchKey, searchFilter = 'repositories' }: Props) => {
+  return <>{searchKey && searchFilter == 'repositories' && <Repos></Repos>}</>;
 };
 
 export default Search;

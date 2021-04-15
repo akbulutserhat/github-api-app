@@ -4,16 +4,21 @@ import Header from './components/Header';
 import FilterList from './components/search/FilterList';
 import FirstScreen from './components/search/FirstScreen';
 import SearchResults from './components/search/SearchResults';
+import { IData } from './shared/interfaces';
+
+export const DataContext = createContext<IData>({ total_count: 0, items: [] });
 
 const App = (): JSX.Element => {
   const [searchKey, setSearchKey] = useState<string>();
-  const [searchFilter, setSearchFilter] = useState<string>('repository');
-
+  const [searchFilter, setSearchFilter] = useState<string>('repositories');
+  const [data, setData] = useState({ total_count: 0, items: [] });
   useEffect(() => {
-    axios
-      .get('https://api.github.com/search/repositories?q=lottie')
-      .then((res) => console.log(res.data));
-  }, []);
+    if (searchKey) {
+      axios
+        .get(`https://api.github.com/search/${searchFilter}?q=${searchKey}`)
+        .then((res) => setData(res.data));
+    }
+  }, [searchKey, searchFilter]);
 
   const searchSubmitted = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -30,17 +35,19 @@ const App = (): JSX.Element => {
     <>
       <Header handleSearchSubmitted={searchSubmitted}></Header>
       {!searchKey && <FirstScreen></FirstScreen>}
-      <main className='main-side'>
-        <div className='left-side left-side__no-padding'>
-          <FilterList
-            changeFilter={changeFilter}
-            searchFilter={searchFilter}></FilterList>
-          <div className='line-y line-y__gray-light'></div>
-        </div>
-        <div className='right-side'>
-          <SearchResults searchKey={searchKey}></SearchResults>
-        </div>
-      </main>
+      <DataContext.Provider value={data}>
+        <main className='main-side'>
+          <div className='left-side left-side__no-padding'>
+            <FilterList
+              changeFilter={changeFilter}
+              searchFilter={searchFilter}></FilterList>
+            <div className='line-y line-y__gray-light'></div>
+          </div>
+          <div className='right-side'>
+            <SearchResults searchKey={searchKey}></SearchResults>
+          </div>
+        </main>
+      </DataContext.Provider>
     </>
   );
 };
