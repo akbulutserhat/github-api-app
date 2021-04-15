@@ -1,0 +1,29 @@
+.line-x {
+  width: 100%;
+  height: 1px;
+
+  &__gray {
+    background-color: $gray;
+  }
+
+  &__gray-light {
+    background-color: $gray-light;
+  }
+
+  &__m-24 {
+    margin: 24px 0;
+  }
+}
+
+.line-y {
+  height: 100%;
+  width: 1px;
+
+  &__gray {
+    background-color: $gray;
+  }
+
+  &__gray-light {
+    background-color: $gray-light;
+  }
+}

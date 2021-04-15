@@ -9,7 +9,7 @@ interface Props {
 
 const Header = ({ handleSearchSubmitted }: Props) => {
   return (
-    <div className='header'>
+    <header className='header'>
       <img src={Logo} alt='Logo'></img>
       <form className='search-container' onSubmit={handleSearchSubmitted}>
         <SearchIcon></SearchIcon>
@@ -23,7 +23,7 @@ const Header = ({ handleSearchSubmitted }: Props) => {
         <BookmarkBorderIcon></BookmarkBorderIcon>
         <span>Bookmarks</span>
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -1,15 +1,20 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import Header from './components/Header';
-import Search from './components/search/Search';
+import FilterList from './components/search/FilterList';
+import FirstScreen from './components/search/FirstScreen';
+import SearchResults from './components/search/SearchResults';
 
 const App = (): JSX.Element => {
   const [searchKey, setSearchKey] = useState<string>();
+  const [searchFilter, setSearchFilter] = useState<string>('repository');
+
   useEffect(() => {
     axios
       .get('https://api.github.com/search/repositories?q=lottie')
       .then((res) => console.log(res.data));
   }, []);
+
   const searchSubmitted = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     const searchValue = document.querySelector<HTMLInputElement>(
@@ -17,10 +22,25 @@ const App = (): JSX.Element => {
     )?.value;
     setSearchKey(searchValue);
   };
+
+  const changeFilter = (value: string) => {
+    setSearchFilter(value);
+  };
   return (
     <>
       <Header handleSearchSubmitted={searchSubmitted}></Header>
-      <Search searchKey={searchKey}></Search>
+      {!searchKey && <FirstScreen></FirstScreen>}
+      <main className='main-side'>
+        <div className='left-side left-side__no-padding'>
+          <FilterList
+            changeFilter={changeFilter}
+            searchFilter={searchFilter}></FilterList>
+          <div className='line-y line-y__gray-light'></div>
+        </div>
+        <div className='right-side'>
+          <SearchResults searchKey={searchKey}></SearchResults>
+        </div>
+      </main>
     </>
   );
 };

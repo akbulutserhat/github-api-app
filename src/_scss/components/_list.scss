@@ -1,0 +1,22 @@
+.filter-list {
+  width: 100%;
+  height: fit-content;
+  border-bottom: 1px solid $gray-light;
+
+  .active-link {
+    color: $blue;
+    background-color: $link-background;
+
+    svg {
+      color: $blue;
+    }
+
+    &:hover {
+      background-color: $link-background;
+    }
+  }
+
+  .active-text {
+    color: $blue;
+  }
+}

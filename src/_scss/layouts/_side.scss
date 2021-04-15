@@ -1,0 +1,21 @@
+.main-side {
+  display: flex;
+  height: calc(100vh - 65px); // 65px = header height;
+}
+
+.left-side {
+  display: flex;
+  &__no-padding {
+    min-width: 360px;
+  }
+
+  &__with-padding {
+    width: 268px;
+    padding: 43px 46px;
+  }
+}
+
+.right-side {
+  padding: 42px 64px;
+  width: 100%;
+}

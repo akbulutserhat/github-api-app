@@ -5,18 +5,10 @@ const Repos = () => {
     <div className='repositories'>
       <p className='count'>2,555 Repository Results</p>
       <ul>
-        <li className='repo-item'>
-          <RepoItem></RepoItem>
-        </li>
-        <li className='repo-item'>
-          <RepoItem></RepoItem>
-        </li>
-        <li className='repo-item'>
-          <RepoItem></RepoItem>
-        </li>
-        <li className='repo-item'>
-          <RepoItem></RepoItem>
-        </li>
+        <RepoItem></RepoItem>
+        <RepoItem></RepoItem>
+        <RepoItem></RepoItem>
+        <RepoItem></RepoItem>
       </ul>
     </div>
   );
