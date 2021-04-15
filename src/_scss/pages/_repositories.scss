@@ -1,0 +1,23 @@
+.repositories {
+  margin: 42px 0 0 63px;
+
+  .count {
+    margin-bottom: 42px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .repo-item {
+    display: flex;
+  }
+
+  .repo-info {
+    margin-left: 8px;
+
+    .name {
+      color: $blue;
+      font-size: 20px;
+    }
+  }
+}

@@ -1,19 +1,24 @@
 import SearchIcon from '@material-ui/icons/Search';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import Logo from '../assets/digieggs-logo.png';
+import { FormEventHandler } from 'react';
 
-const Header = () => {
+interface Props {
+  handleSearchSubmitted?: FormEventHandler<HTMLFormElement>;
+}
+
+const Header = ({ handleSearchSubmitted }: Props) => {
   return (
     <div className='header'>
       <img src={Logo} alt='Logo'></img>
-      <div className='search-container'>
+      <form className='search-container' onSubmit={handleSearchSubmitted}>
         <SearchIcon></SearchIcon>
         <input
           name='search'
           className='search-input'
           autoComplete='off'
           placeholder='Search...'></input>
-      </div>
+      </form>
       <div className='bookmark-container'>
         <BookmarkBorderIcon></BookmarkBorderIcon>
         <span>Bookmarks</span>
