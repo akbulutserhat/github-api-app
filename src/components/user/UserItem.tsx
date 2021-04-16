@@ -1,5 +1,6 @@
 import { IUser } from '../../shared/interfaces';
 import Avatar from '@material-ui/core/Avatar';
+import { Link } from 'react-router-dom';
 
 interface Props {
   item: IUser;
@@ -15,7 +16,11 @@ const UserItem = ({ item }: Props) => {
           src={avatar_url}
           style={{ width: '24px', height: '24px' }}></Avatar>
         <div className='repo-info'>
-          <p className='name'>{login}</p>
+          <Link
+            to={{ pathname: '/user-detail', state: { url } }}
+            className='name'>
+            {login}
+          </Link>
           <p className='description'>Title</p>
         </div>
       </div>

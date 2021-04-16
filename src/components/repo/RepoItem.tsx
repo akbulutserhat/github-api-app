@@ -1,4 +1,5 @@
 import BookOutlinedIcon from '@material-ui/icons/BookOutlined';
+import { Link } from 'react-router-dom';
 import { IRepo } from '../../shared/interfaces';
 
 interface Props {
@@ -12,7 +13,11 @@ const RepoItem = ({ item }: Props) => {
       <div className='repo-item'>
         <BookOutlinedIcon></BookOutlinedIcon>
         <div className='repo-info'>
-          <p className='name'>{full_name}</p>
+          <Link
+            to={{ pathname: '/repo-detail', state: { url } }}
+            className='name'>
+            {full_name}
+          </Link>
           <p className='description'>{description}</p>
         </div>
       </div>

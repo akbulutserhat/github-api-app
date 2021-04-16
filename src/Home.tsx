@@ -8,8 +8,11 @@ import { IData } from './shared/interfaces';
 
 export const DataContext = createContext<IData>({ total_count: 0, items: [] });
 
-const App = (): JSX.Element => {
-  const [searchKey, setSearchKey] = useState<string>();
+interface Props {
+  searchKey?: string;
+}
+
+const Home = ({ searchKey }: Props): JSX.Element => {
   const [searchFilter, setSearchFilter] = useState<string>('repositories');
   const [data, setData] = useState({ total_count: 0, items: [] });
   useEffect(() => {
@@ -20,20 +23,11 @@ const App = (): JSX.Element => {
     }
   }, [searchKey, searchFilter]);
 
-  const searchSubmitted = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    const searchValue = document.querySelector<HTMLInputElement>(
-      'input[name=search]'
-    )?.value;
-    setSearchKey(searchValue);
-  };
-
   const changeFilter = (value: string) => {
     setSearchFilter(value);
   };
   return (
     <>
-      <Header handleSearchSubmitted={searchSubmitted}></Header>
       {!searchKey && <FirstScreen></FirstScreen>}
       <DataContext.Provider value={data}>
         <main className='main-side'>
@@ -55,4 +49,4 @@ const App = (): JSX.Element => {
   );
 };
 
-export default App;
+export default Home;

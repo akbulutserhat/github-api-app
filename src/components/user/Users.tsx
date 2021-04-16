@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { DataContext } from '../../App';
+import { DataContext } from '../../Home';
 import { IData, IRepo, IUser } from '../../shared/interfaces';
 import UserItem from './UserItem';
 

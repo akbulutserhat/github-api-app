@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { DataContext } from '../../App';
+import { DataContext } from '../../Home';
 import { IData } from '../../shared/interfaces';
 import RepoItem from './RepoItem';
 

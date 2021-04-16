@@ -6,9 +6,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import { useContext, useEffect, useState } from 'react';
-import { IData } from '../../shared/interfaces';
-import { DataContext } from '../../App';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 interface Props {
