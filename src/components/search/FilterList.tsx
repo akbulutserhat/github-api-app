@@ -6,17 +6,32 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { IData } from '../../shared/interfaces';
 import { DataContext } from '../../App';
+import axios from 'axios';
 
 interface Props {
   changeFilter: any;
   searchFilter: string;
+  searchKey?: string;
 }
 
-const FilterList = ({ changeFilter, searchFilter }: Props) => {
-  const { total_count } = useContext<IData>(DataContext);
+const FilterList = ({ changeFilter, searchFilter, searchKey }: Props) => {
+  const [repoCount, setRepoCount] = useState<number>(0);
+  const [userCount, setUserCount] = useState<number>(0);
+  useEffect(() => {
+    if (searchKey) {
+      axios
+        .get(`https://api.github.com/search/repositories?q=${searchKey}`)
+        .then((res) => setRepoCount(res.data.total_count));
+
+      axios
+        .get(`https://api.github.com/search/users?q=${searchKey}`)
+        .then((res) => setUserCount(res.data.total_count));
+    }
+  }, [searchKey]);
+
   return (
     <>
       <List
@@ -33,7 +48,7 @@ const FilterList = ({ changeFilter, searchFilter }: Props) => {
           <ListItemText primary='Repositories' />
           <ListItemSecondaryAction
             className={searchFilter == 'repositories' ? 'active-text' : ''}>
-            {total_count}
+            {repoCount}
           </ListItemSecondaryAction>
         </ListItem>
         <ListItem
@@ -46,7 +61,7 @@ const FilterList = ({ changeFilter, searchFilter }: Props) => {
           <ListItemText primary='Users' />
           <ListItemSecondaryAction
             className={searchFilter == 'users' ? 'active-text' : ''}>
-            3
+            {userCount}
           </ListItemSecondaryAction>
         </ListItem>
         <ListItem

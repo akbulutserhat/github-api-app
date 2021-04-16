@@ -40,11 +40,14 @@ const App = (): JSX.Element => {
           <div className='left-side left-side__no-padding'>
             <FilterList
               changeFilter={changeFilter}
-              searchFilter={searchFilter}></FilterList>
+              searchFilter={searchFilter}
+              searchKey={searchKey}></FilterList>
             <div className='line-y line-y__gray-light'></div>
           </div>
           <div className='right-side'>
-            <SearchResults searchKey={searchKey}></SearchResults>
+            <SearchResults
+              searchKey={searchKey}
+              searchFilter={searchFilter}></SearchResults>
           </div>
         </main>
       </DataContext.Provider>

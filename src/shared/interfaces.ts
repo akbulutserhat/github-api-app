@@ -4,7 +4,13 @@ export interface IRepo {
   url: string;
 }
 
+export interface IUser {
+  login: string;
+  avatar_url: string;
+  url: string;
+}
+
 export interface IData {
   total_count: number;
-  items: Array<IRepo>;
+  items: Array<IRepo & IUser>;
 }
