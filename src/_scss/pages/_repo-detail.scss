@@ -1,0 +1,74 @@
+.detail {
+  padding: 43px 46px;
+  width: 100%;
+  .name {
+    font-size: 24px;
+    line-height: 1;
+    color: $blue;
+    margin-bottom: 8px;
+  }
+
+  .description {
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .link {
+    display: flex;
+    margin-bottom: 32px;
+    a {
+      margin-left: 8px;
+      font-size: 20px;
+      line-height: 1.2;
+      color: $blue-second;
+    }
+  }
+
+  .stats {
+    li {
+      &:nth-child(5) {
+        margin-bottom: 64px;
+      }
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      line-height: 1.2;
+      div {
+        display: flex;
+        align-items: flex-start;
+        span {
+          margin-left: 8px;
+        }
+      }
+
+      .stat-count {
+        font-weight: bold;
+        color: $blue-second;
+      }
+    }
+  }
+
+  button {
+    margin-top: 32px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid $blue-second;
+    border-radius: 4px;
+    color: $blue-second;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    outline: none;
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+
+  .bg-blue {
+    color: $white;
+    background-color: $blue-second;
+  }
+}

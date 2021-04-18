@@ -1,21 +1,35 @@
-.repositories {
-  .count {
-    margin-bottom: 42px;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 1;
-  }
+.count {
+  display: flex;
+  align-items: center;
+  margin-bottom: 42px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
 
-  .repo-item {
+  span {
     display: flex;
+    color: $blue-second;
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 10px;
+    border: 1px solid $blue-second;
+    border-radius: 4px;
+    width: 74px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
   }
+}
 
-  .repo-info {
-    margin-left: 8px;
+.repo-item {
+  display: flex;
+}
 
-    .name {
-      color: $blue;
-      font-size: 20px;
-    }
+.repo-info {
+  margin-left: 8px;
+
+  .name {
+    color: $blue;
+    font-size: 20px;
   }
 }

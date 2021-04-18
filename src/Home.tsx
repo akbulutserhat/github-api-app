@@ -31,7 +31,7 @@ const Home = ({ searchKey }: Props): JSX.Element => {
       {!searchKey && <FirstScreen></FirstScreen>}
       <DataContext.Provider value={data}>
         <main className='main-side'>
-          <div className='left-side left-side__no-padding'>
+          <div className='left-side'>
             <FilterList
               changeFilter={changeFilter}
               searchFilter={searchFilter}

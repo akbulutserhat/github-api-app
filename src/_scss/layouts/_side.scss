@@ -5,14 +5,7 @@
 
 .left-side {
   display: flex;
-  &__no-padding {
-    min-width: 360px;
-  }
-
-  &__with-padding {
-    width: 268px;
-    padding: 43px 46px;
-  }
+  min-width: 360px;
 }
 
 .right-side {

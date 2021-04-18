@@ -8,7 +8,9 @@ const Repos = () => {
   const { total_count, items } = data;
   return (
     <div className='repositories'>
-      <p className='count'>{total_count} Repository Results</p>
+      <p className='count'>
+        {Intl.NumberFormat('en-US').format(total_count)} Repository Results
+      </p>
       <ul>
         {items.map((item) => (
           <RepoItem item={item} key={item.url}></RepoItem>

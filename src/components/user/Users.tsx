@@ -9,7 +9,9 @@ const Users = () => {
   console.log(data);
   return (
     <div className='repositories'>
-      <p className='count'>{total_count} User Results</p>
+      <p className='count'>
+        {Intl.NumberFormat('en-US').format(total_count)} User Results
+      </p>
       <ul>
         {items.map((item) => (
           <UserItem item={item} key={item.url}></UserItem>

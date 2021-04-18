@@ -46,7 +46,7 @@ const FilterList = ({ changeFilter, searchFilter, searchKey }: Props) => {
           <ListItemText primary='Repositories' />
           <ListItemSecondaryAction
             className={searchFilter == 'repositories' ? 'active-text' : ''}>
-            {repoCount}
+            {Intl.NumberFormat('en-US').format(repoCount)}
           </ListItemSecondaryAction>
         </ListItem>
         <ListItem
@@ -59,7 +59,7 @@ const FilterList = ({ changeFilter, searchFilter, searchKey }: Props) => {
           <ListItemText primary='Users' />
           <ListItemSecondaryAction
             className={searchFilter == 'users' ? 'active-text' : ''}>
-            {userCount}
+            {Intl.NumberFormat('en-US').format(userCount)}
           </ListItemSecondaryAction>
         </ListItem>
         <ListItem
