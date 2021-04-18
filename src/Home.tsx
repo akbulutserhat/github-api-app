@@ -29,22 +29,24 @@ const Home = ({ searchKey }: Props): JSX.Element => {
   return (
     <>
       {!searchKey && <FirstScreen></FirstScreen>}
-      <DataContext.Provider value={data}>
-        <main className='main-side'>
-          <div className='left-side'>
-            <FilterList
-              changeFilter={changeFilter}
-              searchFilter={searchFilter}
-              searchKey={searchKey}></FilterList>
-            <div className='line-y line-y__gray-light'></div>
-          </div>
-          <div className='right-side'>
-            <SearchResults
-              searchKey={searchKey}
-              searchFilter={searchFilter}></SearchResults>
-          </div>
-        </main>
-      </DataContext.Provider>
+      {searchKey && (
+        <DataContext.Provider value={data}>
+          <main className='main-side'>
+            <div className='left-side'>
+              <FilterList
+                changeFilter={changeFilter}
+                searchFilter={searchFilter}
+                searchKey={searchKey}></FilterList>
+              <div className='line-y line-y__gray-light'></div>
+            </div>
+            <div className='right-side'>
+              <SearchResults
+                searchKey={searchKey}
+                searchFilter={searchFilter}></SearchResults>
+            </div>
+          </main>
+        </DataContext.Provider>
+      )}
     </>
   );
 };

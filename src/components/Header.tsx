@@ -2,6 +2,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import Logo from '../assets/digieggs-logo.png';
 import { FormEventHandler } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Props {
   handleSearchSubmitted?: FormEventHandler<HTMLFormElement>;
@@ -10,7 +11,9 @@ interface Props {
 const Header = ({ handleSearchSubmitted }: Props) => {
   return (
     <header className='header'>
-      <img src={Logo} alt='Logo'></img>
+      <Link to='/'>
+        <img src={Logo} alt='Logo'></img>
+      </Link>
       <form className='search-container' onSubmit={handleSearchSubmitted}>
         <SearchIcon></SearchIcon>
         <input

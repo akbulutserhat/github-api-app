@@ -64,7 +64,6 @@ const FilterList = ({ changeFilter, searchFilter, searchKey }: Props) => {
         </ListItem>
         <ListItem
           button
-          onClick={() => changeFilter('bookmarked')}
           className={searchFilter == 'bookmarked' ? 'active-link' : ''}>
           <ListItemIcon>
             <BookmarkBorderIcon />
@@ -72,7 +71,7 @@ const FilterList = ({ changeFilter, searchFilter, searchKey }: Props) => {
           <ListItemText primary='Bookmarked' />
           <ListItemSecondaryAction
             className={searchFilter == 'bookmarked' ? 'active-text' : ''}>
-            12
+            0
           </ListItemSecondaryAction>
         </ListItem>
       </List>
